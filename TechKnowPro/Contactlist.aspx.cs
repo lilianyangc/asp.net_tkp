@@ -13,5 +13,10 @@ namespace TechKnowPro
         {
 
         }
+
+        protected void btnSelectAddCust_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Customers.aspx");
+        }
     }
 }

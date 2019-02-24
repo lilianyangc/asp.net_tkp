@@ -13,5 +13,10 @@ namespace TechKnowPro
         {
 
         }
+
+        protected void btnDisplayContactList_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Contactlist.aspx");
+        }
     }
 }
