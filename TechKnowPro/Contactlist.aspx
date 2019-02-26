@@ -25,9 +25,19 @@
                 </tr>
                 <tr>
                     <td><%-- Bound to Contact list table --%>
-                        <asp:ListBox ID="ListBox1" runat="server" Height="106px" Width="320px"></asp:ListBox>
-                        <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" /> &nbsp 
-                        <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" />
+                        <asp:ListBox ID="lbContacts" runat="server" Height="172px" Width="441px" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="contact_details" DataValueField="contact_id">
+                        </asp:ListBox>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                            SelectCommand="SELECT [contact_id], [contact_details] FROM [contact_list]" 
+                            DeleteCommand="DELETE FROM [contact_list] WHERE contact_id=@ContactID;">
+                            <DeleteParameters>
+                                <asp:ControlParameter Name="ContactID" ControlId="lbContacts" PropertyName="SelectedValue"/>
+                            </DeleteParameters>
+                        </asp:SqlDataSource>
+                        <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" OnClick="btnRemoveContact_Click" /> &nbsp 
+                        <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" OnClick="btnEmptyList_Click" />
+                        
+                        <br />
                         <br />
                         <asp:Button ID="btnSelectAddCust" runat="server" Text="Select Additional Customers" OnClick="btnSelectAddCust_Click" />
                     </td>

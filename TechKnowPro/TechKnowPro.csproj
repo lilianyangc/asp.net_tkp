@@ -67,10 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\techknowdb.mdf" />
-    <Content Include="App_Data\techknowdb_log.ldf">
-      <DependentUpon>techknowdb.mdf</DependentUpon>
-    </Content>
     <Content Include="Contactlist.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Web.config" />
@@ -83,6 +79,7 @@
     <Compile Include="Contactlist.aspx.designer.cs">
       <DependentUpon>Contactlist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Customer.cs" />
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,7 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
